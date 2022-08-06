@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p> Игра: "Угадай число"</p>
+    <script>
+        while (true) {
+            let num = Math.floor(Math.random() * 10);
+            console.log("Загаданное число", num);
+            let usernum = prompt("Введите число от 0 до 9, q - выход:")
+            console.log("Введенное число", usernum);
+            if (usernum === "q") {
+                alert("Очень жаль, до свидания.");
+                break;
+            }
+            if (isNaN(usernum)) {
+                alert("Вы ввели не число, введите число от 0 до 9");
+            } else if (usernum < 0 || usernum > 9) {
+                alert("Вы ввели число не от 0 до 9, повторите ввод");
+            } else if (usernum > num) {
+                alert("Вы не угадали, ваше число больше.");
+            } else if (usernum < num) {
+                alert("Вы не угадали, ваше число меньше.");
+            } else {
+                alert("Поздравляю, Вы угадали!!! Если Вы хотите продолжить введите 'y'");
+                let continuation = prompt("Введите y- для продолжения, q - выход:")
+                if (continuation !== "y") {
+                    break;
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
